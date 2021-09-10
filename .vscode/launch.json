@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "type": "node",
+      "name": "Run Jest tests for this folder",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": ["--runInBand", "${relativeFileDirname}"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "skipFiles": ["${workspaceFolder}/node_modules/**/*.js", "<node_internals>/**/*.js"]
+    },
+    {
+      "name": "ts-node",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["--nolazy", "-r", "ts-node/register/transpile-only"],
+
+      "args": ["${file}"],
+
+      "cwd": "${workspaceRoot}",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    }
+  ]
+}
